@@ -15,8 +15,10 @@ const findManyBooks = (searchParam) => {
     return Book.findAll({ where: { ...searchParam}});
 }
 
-const findBookById = (id) => {
-    return Book.findByPk(id);
+const findBookById = async (id) => {
+    const book = await Book.findByPk(id);
+    if (!book) throw new Error("Book with specified id does not exist");
+    return book;
 }
 
 const findOneBook = (searchParam) => {
@@ -34,11 +36,13 @@ const findBookByIdAndUpdate = async (id, body) => {
 
 const findBookByIdAnddelete = async (id) => {
     const book = await findBookById(id);
+    
     await book.destroy();
     return book;
 }
 
 module.exports = {
+    createNewBook,
     findBookById,
     findOneBook,
     findManyBooks,
