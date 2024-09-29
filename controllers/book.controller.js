@@ -23,4 +23,23 @@ const updateHandler = asyncHandler(async (req, res) => {
     res.status(202).json(book)
 })
 
-module.exports = { createBookHandler, getManyBooksHandler, deleteBookHandler, updateHandler };
+const bookLendingHandler = asyncHandler( async ( req, res ) => {
+    const { action, userId: borrower } = req.body;
+    if (!(action && borrower && ["lend", "return"].includes(action))) throw new Error("Bad request, action and userId are required");
+    const book = await findBookById(req.params.id);
+    
+    if ( action === "lend") {
+        if (!book.isAvailable) throw new Error("Book is not available");
+        book.borrower = borrower;
+        book.isAvailable = false;
+    } else {
+        book.borrower = null;
+        book.isAvailable = true;
+    }
+
+    await book.save();
+    const updatedBook = await findBookById(book.id);
+    res.status(202).json(updatedBook);
+})
+
+module.exports = { createBookHandler, getManyBooksHandler, deleteBookHandler, updateHandler, bookLendingHandler };

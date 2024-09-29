@@ -5,7 +5,7 @@
 // delete 
 // create done
 
-const { Book } = require("../models")
+const { Book, User } = require("../models")
 
 const createNewBook = (body) => {
     return Book.create({ ...body});
@@ -16,7 +16,7 @@ const findManyBooks = (searchParam) => {
 }
 
 const findBookById = async (id) => {
-    const book = await Book.findByPk(id);
+    const book = await Book.findByPk(id, {include: User});
     if (!book) throw new Error("Book with specified id does not exist");
     return book;
 }

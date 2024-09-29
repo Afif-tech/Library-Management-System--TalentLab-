@@ -1,6 +1,53 @@
 const { DataTypes } = require("sequelize")
 const { toDefaultValue } = require("sequelize/lib/utils")
 
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     CreateBookDto:
+ *       type: object
+ *       properties:
+ *         title:
+ *           type: string
+ *           default: An amazing book
+ *         author:
+ *           type: string
+ *           default: Jane Doe
+ *       required:
+ *         - title
+ *         - author
+ * 
+ *     UpdateBookDto:
+ *       type: object
+ *       properties:
+ *         title:
+ *           type: string
+ *           default: An amazing book
+ *         author:
+ *           type: string
+ *           default: Jane Doe
+ * 
+ *     BookDto:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: string
+ *         title:
+ *           type: string
+ *         author:
+ *           type: string
+ *         isAvailable:
+ *           type: boolean
+ *         createdAt:
+ *           type: string
+ *           format: date
+ *         updatedAt:
+ *           type: string
+ *           format: date
+ * 
+ */
+
 const bookmodel = (db) => {
     return db.define("Book", {
         id: {
@@ -16,6 +63,10 @@ const bookmodel = (db) => {
         author: {
             type: DataTypes.STRING,
             allowNull: false,
+        },
+        isAvailable: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: true,
         }
     })
 }
