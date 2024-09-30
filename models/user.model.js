@@ -23,6 +23,26 @@ const bcryptjs = require("bcryptjs");
  *         - email
  *         - password
  * 
+ *     CreateStaffDto:
+ *       type: object
+ *       properties:
+ *         username:
+ *           type: string
+ *           default: jane
+ *         email:
+ *           type: string
+ *           default: jane@doe.com
+ *         password:
+ *           type: string
+ *           default: pass
+ *         roleID:
+ *           type: string 
+ *       required:
+ *         - username
+ *         - email
+ *         - password
+ *         - roleID
+ * 
  *     UpdateUserDto:
  *       type: object
  *       properties:
@@ -35,6 +55,21 @@ const bcryptjs = require("bcryptjs");
  *         password:
  *           type: string
  *           default: password123
+ * 
+ *     UpdateStaffDto:
+ *       type: object
+ *       properties:
+ *         username:
+ *           type: string
+ *           default: jane
+ *         email:
+ *           type: string
+ *           default: jane@doe.com
+ *         password:
+ *           type: string
+ *           default: pass
+ *         roleID:
+ *           type: string
  * 
  *     LoginUserDto:
  *       type: object

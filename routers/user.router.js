@@ -11,16 +11,14 @@ const router = Router();
  *   get:
  *     tags:
  *       - Users
- *     summary: Get all the users
+ *     summary: Get the current user information
  *     responses:
  *       200:
- *         description: Success, return all the users in array
+ *         description: Success, return current user
  *         content:
  *           application/json:
  *            schema:
- *              type: array
- *              items:
- *                $ref: "#/components/schemas/UserDto"
+ *              $ref: "#/components/schemas/UserDto"
  *       500:
  *         description: User not logged in
  * 

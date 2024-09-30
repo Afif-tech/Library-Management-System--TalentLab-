@@ -20,7 +20,7 @@ const router = Router();
  *             schema:
  *               type: array
  *               items:
- *                 $ref: "#/components/schemas/StaffDto"
+ *                 $ref: "#/components/schemas/UserDto"
  *       500:
  *         description: User not logged in
  *       403:
@@ -42,7 +42,7 @@ const router = Router();
  *         content:
  *           application/json:
  *             schema:
- *               $ref: "#/components/schemas/StaffDto"
+ *               $ref: "#/components/schemas/UserDto"
  * 
  * /api/admin/staff/{id} :
  *   patch:
@@ -67,7 +67,7 @@ const router = Router();
  *         content:
  *           application/json:
  *             schema:
- *               $ref: "#/components/schemas/StaffDto"
+ *               $ref: "#/components/schemas/UserDto"
  * 
  *   delete:
  *     tags:
@@ -85,11 +85,50 @@ const router = Router();
  *         content:
  *           application/json:
  *             schema:
- *               $ref: "#/components/schemas/StaffDto"
+ *               $ref: "#/components/schemas/UserDto"
  * 
- * 
+ * /api/admin/users:
+ *   get:
+ *     tags:
+ *       - Admin
+ *     summary: get all users
+ *     responses:
+ *       200:
+ *         description: Success, return all users
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: "#/components/schemas/UserDto"
+ *       500:
+ *         description: User not logged in
+ *       403:
+ *         description: Forbidden resource
+ *     
+ * /api/admin/users/{id}:
+ *   delete:
+ *     tags:
+ *       - Admin
+ *     summary: remove user by id
+ *     parameters:
+ *       - in: path
+ *         name: user id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       202:
+ *         description: Successfully removed the user
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: "#/components/schemas/UserDto"
  * 
  */
+
+
+
 
 
 router.use(isAuthenticated);
