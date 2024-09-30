@@ -28,17 +28,29 @@ const { toDefaultValue } = require("sequelize/lib/utils")
  *           type: string
  *           default: Jane Doe
  * 
+ *     LendReturnBookDto:
+ *       type: object
+ *       properties:
+ *         action:
+ *           type: string
+ *           default: lend
+ *         userId:
+ *           type: string
+ *       required:
+ *         - action
+ *         - userId
+ * 
  *     BookDto:
  *       type: object
  *       properties:
  *         id:
  *           type: string
+ *         isAvailable:
+ *           type: boolean
  *         title:
  *           type: string
  *         author:
  *           type: string
- *         isAvailable:
- *           type: boolean
  *         createdAt:
  *           type: string
  *           format: date

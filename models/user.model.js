@@ -35,6 +35,7 @@ const bcryptjs = require("bcryptjs");
  *         password:
  *           type: string
  *           default: password123
+ * 
  *     LoginUserDto:
  *       type: object
  *       properties:
@@ -47,7 +48,6 @@ const bcryptjs = require("bcryptjs");
  *       required:
  *         - email
  *         - password
- *   
  * 
  *     UserDto:
  *       type: object
@@ -68,6 +68,8 @@ const bcryptjs = require("bcryptjs");
  *         updatedAt:
  *           type: string
  *           format: date
+ *         roleID: 
+ *           type: string
  * 
  */
 

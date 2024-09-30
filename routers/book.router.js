@@ -82,7 +82,34 @@ const router = Router();
  *           application/json:
  *             schema:
  *               $ref: "#/components/schemas/BookDto"
+ * 
+ * /api/books/{id}/lend:
+ *   patch:
+ *     tags:
+ *       - Books
+ *     summary: Lend/Return a Book
+ *     parameters:
+ *       - in: path
+ *         name: book id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: "#/components/schemas/LendReturnBookDto"
+ *     responses:
+ *       202:
+ *         description: Successfully lend/return the book
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: "#/components/schemas/BookDto"
+ *     
  */
+
 
 router.route("/")
     .post( isAuthenticated, isStaff, hasPermission("canManageBooks"), createBookHandler)

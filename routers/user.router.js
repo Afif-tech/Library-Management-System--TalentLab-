@@ -79,7 +79,7 @@ const router = Router();
  *             $ref: "#/components/schemas/LoginUserDto"
  *     responses:
  *       201:
- *         description: Created new user
+ *         description: User logged in
  *         content:
  *           application/json:
  *             schema:
@@ -92,7 +92,7 @@ const router = Router();
  *     summary: User logout
  *     responses:
  *       200:
- *         description: User Logged out successfully
+ *         description: User Logged out
  *         content:
  *           application/json:
  *             schema:

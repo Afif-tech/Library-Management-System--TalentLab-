@@ -4,6 +4,94 @@ const { getAllStaffHandler, creatStaffUserHandler, updateStaffHandler, deleteSta
 
 const router = Router();
 
+
+/**
+ * @openapi
+ * /api/admin/staff:
+ *   get:
+ *     tags:
+ *       - Admin
+ *     summary: Get all staff
+ *     responses:
+ *       200:
+ *         description: Success, return all staff
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: "#/components/schemas/StaffDto"
+ *       500:
+ *         description: User not logged in
+ *       403:
+ *         description: Forbidden resource
+ * 
+ *   post:
+ *     tags:
+ *       - Admin
+ *     summary: Create staff
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: "#/components/schemas/CreateStaffDto"
+ *     responses:
+ *       201:
+ *         description: Created new staff
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: "#/components/schemas/StaffDto"
+ * 
+ * /api/admin/staff/{id} :
+ *   patch:
+ *     tags:
+ *       - Admin
+ *     summary: Update staff by id
+ *     parameters:
+ *       - in: path
+ *         name: user id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: "#/components/schemas/UpdateStaffDto"
+ *     responses:
+ *       202:
+ *         descirption: Successfully updated the staff
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: "#/components/schemas/StaffDto"
+ * 
+ *   delete:
+ *     tags:
+ *       - Admin
+ *     summary: Delete staff by id
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       202:
+ *         description: Successfully deleted the staff
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: "#/components/schemas/StaffDto"
+ * 
+ * 
+ * 
+ */
+
+
 router.use(isAuthenticated);
 router.use(isStaff);
 
