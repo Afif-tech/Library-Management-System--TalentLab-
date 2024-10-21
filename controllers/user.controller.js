@@ -14,6 +14,12 @@ const getCurrentUserHandler = asyncHandler( async ( req, res ) => {
     res.json(req.user);
 })
 
+const loginUserHandler = asyncHandler( async ( req, res ) => {
+    res.json({
+        message: "User Logged In",
+        user: req.user});
+})
+
 const logoutUserHandler = asyncHandler(async ( req, res) => {
     const username = await req.user.username;
     req.logout((err) => {
@@ -28,4 +34,4 @@ const updateUserHandler = asyncHandler(async ( req, res) => {
     res.json(user);
 });
 
-module.exports = { signUpHandler, getCurrentUserHandler, logoutUserHandler, updateUserHandler };
+module.exports = { signUpHandler, getCurrentUserHandler, logoutUserHandler, updateUserHandler, loginUserHandler };

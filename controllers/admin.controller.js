@@ -15,8 +15,8 @@ const creatStaffUserHandler = asyncHandler(async(req, res) => {
 })
 
 const updateStaffHandler = asyncHandler(async ( req, res) => {
-    const { roleID, email, username, password } = req.body;
-    const updatedStaff = await findUserByIdAndUpdate(req.params.id, { roleID, email, username, password });
+    const { roleID, email, username, password, isStaff } = req.body;
+    const updatedStaff = await findUserByIdAndUpdate(req.params.id, { roleID, email, username, password, isStaff});
     res.status(202).json(updatedStaff);
 })
 

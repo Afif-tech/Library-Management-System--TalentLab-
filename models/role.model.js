@@ -1,6 +1,65 @@
 const { DataTypes } = require("sequelize")
 
-
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     CreateRoleDto:
+ *       type: object
+ *       properties:
+ *         name:
+ *           type: string
+ *           default: librarian
+ *         canLendBooks:
+ *           type: boolean
+ *           default: false
+ *         canManageBooks:
+ *           type: boolean
+ *           default: false
+ *         canManageStaff:
+ *           type: boolean
+ *           default: false
+ *         canManageUsers:
+ *           type: boolean
+ *           default: false
+ *       required:
+ *         - name
+ *
+ *     UpdateRoleDto:
+ *       type: object
+ *       properties:
+ *         name:
+ *           type: string
+ *           default: librarian
+ *         canLendBooks:
+ *           type: boolean
+ *           default: false
+ *         canManageBooks:
+ *           type: boolean
+ *           default: false
+ *         canManageStaff:
+ *           type: boolean
+ *           default: false
+ *         canManageUsers:
+ *           type: boolean
+ *           default: false
+ *
+ *     RoleDto:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: string
+ *         name:
+ *           type: string
+ *         permissions:
+ *           type: boolean
+ *         createdAt:
+ *           type: string
+ *           format: date
+ *         updatedAt:
+ *           type: string
+ *           format: date
+ */
 
 const roleModel = (db) => {
     return db.define("Role", {

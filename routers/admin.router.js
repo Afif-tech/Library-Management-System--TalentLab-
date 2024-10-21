@@ -51,7 +51,7 @@ const router = Router();
  *     summary: Update staff by id
  *     parameters:
  *       - in: path
- *         name: user id
+ *         name: id
  *         required: true
  *         schema:
  *           type: string
@@ -113,7 +113,7 @@ const router = Router();
  *     summary: remove user by id
  *     parameters:
  *       - in: path
- *         name: user id
+ *         name: id
  *         required: true
  *         schema:
  *           type: string

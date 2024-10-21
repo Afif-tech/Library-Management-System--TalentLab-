@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { signUpHandler, getCurrentUserHandler, logoutUserHandler, updateUserHandler } = require("../controllers/user.controller");
+const { signUpHandler, getCurrentUserHandler, logoutUserHandler, updateUserHandler, loginUserHandler } = require("../controllers/user.controller");
 const passport = require("passport");
 const { isAuthenticated } = require("../middleware/access-controll.middleware");
 
@@ -106,7 +106,7 @@ router.route("/")
     .get( isAuthenticated, getCurrentUserHandler)
     .patch( isAuthenticated, updateUserHandler);
 
-router.route("/login").post(passport.authenticate("local"), getCurrentUserHandler);
+router.route("/login").post(passport.authenticate("local"), loginUserHandler);
 
 router.route("/logout").post(isAuthenticated, logoutUserHandler);
 

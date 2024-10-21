@@ -90,7 +90,7 @@ const router = Router();
  *     summary: Lend/Return a Book
  *     parameters:
  *       - in: path
- *         name: book id
+ *         name: id
  *         required: true
  *         schema:
  *           type: string

@@ -68,6 +68,9 @@ const bcryptjs = require("bcryptjs");
  *         password:
  *           type: string
  *           default: pass
+ *         isStaff:
+ *           type: string
+ *           default: true
  *         roleID:
  *           type: string
  * 
